@@ -117,4 +117,5 @@ a {
 .generated-image{
   width: 25%;
   margin: 5px;
+  position: relative;
 }
