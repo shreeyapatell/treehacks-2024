@@ -97,5 +97,19 @@ a {
   text-transform:uppercase;
   margin:10px;
   border:none;
-  padding:2px;
+  padding:7px;
+}
+
+.nextButton {
+  background-color:black;
+  color:white;
+  border-radius:5px;
+  font-family: "Alata";
+  text-transform:uppercase;
+  margin:0 auto;
+  border:none;
+  padding:7px;
+  display: flex;
+  justify-content: center;
+  
 }

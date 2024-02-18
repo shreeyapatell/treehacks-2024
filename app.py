@@ -12,12 +12,11 @@ together.api_key = IMAGE_TOGETHER_API_KEY
 app = Flask(__name__)
 messages = [ {"role": "system", "content": "You are a intelligent assistant."} ]
 
-@app.route('/', methods =["GET", "POST"])
-
+@app.route('/api', methods =["GET", "POST"])
 def gfg():
     if request.method == "POST":
         # categorize input
-        words = request.form.get("words")
+        words = request.json.get("words")
         message = f"""
             Please cluster the words into catagories. Assign a name to each category.
             Your response should be formatted as a JSON array, where each item represents a category.
@@ -37,7 +36,7 @@ def gfg():
             {"role": "user", "content": message}, 
         ) 
         chat = client.chat.completions.create( 
-            model="gpt-3.5-turbo", messages=messages, response_format={"type": "json_object"} 
+            model="gpt-3.5-turbo", messages=messages 
         ) 
         reply = chat.choices[0].message.content 
         print(f"ChatGPT: {reply}")
@@ -105,9 +104,5 @@ def gfg():
         return reply + additions
     return "hello"
 
-
- 
-if __name__=='__main__':
-   app.run()
 if __name__ == '__main__':
     app.run(debug=True)
