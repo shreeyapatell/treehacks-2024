@@ -113,3 +113,8 @@ a {
   justify-content: center;
   
 }
+
+.generated-image{
+  width: 25%;
+  margin: 5px;
+}
