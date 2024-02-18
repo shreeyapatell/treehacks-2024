@@ -1,9 +1,10 @@
 from flask import Flask, request, render_template 
+from setup import OPENAI_API_KEY
 
 import openai 
 
 app = Flask(__name__)
-openai.api_key = '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'
+openai.api_key = OPENAI_API_KEY
 messages = [ {"role": "system", "content": "You are a intelligent assistant."} ]
 
 @app.route('/', methods =["GET", "POST"])
